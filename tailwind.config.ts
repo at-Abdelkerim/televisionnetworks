@@ -2,10 +2,11 @@ import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  // important: '#root',
   theme: {
     extend: {
       gridTemplateColumns: {
@@ -18,6 +19,9 @@ const config: Config = {
           600: '#2F6FEB',
         },
       },
+      backgroundColor: {
+        radial: 'radial-gradient(var(--tw-gradient-stops))',
+      },
     },
     keyframes: {
       shimmer: {
@@ -27,6 +31,11 @@ const config: Config = {
       },
     },
   },
-  plugins: [require('@tailwindcss/forms')],
+  corePlugins: {
+    preflight: false,
+  },
+  plugins: [
+    // require('@tailwindcss/forms')
+  ],
 };
 export default config;

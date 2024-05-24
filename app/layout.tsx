@@ -1,3 +1,11 @@
+import '@/app/ui/global.css';
+import { createTheme, ThemeProvider } from '@mui/material';
+import Theme from './ui/Theme';
+import clsx from 'clsx';
+import { Inter } from 'next/font/google';
+
+const inter = Inter({ subsets: ['latin'] });
+
 export default function RootLayout({
   children,
 }: {
@@ -5,7 +13,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={clsx(inter.className, 'm-0 p-0')}>
+        <Theme>{children}</Theme>
+      </body>
     </html>
   );
 }
